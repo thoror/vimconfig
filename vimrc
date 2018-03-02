@@ -18,8 +18,11 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'LaTeX-Box-Team/LaTeX-Box'
 "Plugin 'gerw/vim-latex-suite'
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fireplace'
+Plugin 'slashmili/alchemist.vim'
 Plugin 'guns/vim-clojure-static'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'lervag/vimtex'
@@ -82,8 +85,8 @@ filetype plugin indent on    " required
    " don't outdent hashes
  inoremap # #
     
- set tabstop=4
- set shiftwidth=4
+ set tabstop=2
+ set shiftwidth=2
  set expandtab
  set smarttab
  set autoindent
@@ -181,5 +184,12 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
 set clipboard=unnamed
+let vim_markdown_preview_pandoc=1
 
