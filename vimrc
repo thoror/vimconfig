@@ -20,6 +20,9 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'gerw/vim-latex-suite'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'vim-pandoc/vim-rmarkdown'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fireplace'
 Plugin 'slashmili/alchemist.vim'
@@ -97,7 +100,7 @@ filetype plugin indent on    " required
  language en_US
  set encoding=utf8
  filetype plugin on
- colorscheme gotham
+ colorscheme badwolf
  if has("gui_running")
     set lines=80
     set transparency=12
@@ -191,5 +194,5 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 set clipboard=unnamed
-let vim_markdown_preview_pandoc=1
+let vim_markdown_preview_pandoc=0
 
