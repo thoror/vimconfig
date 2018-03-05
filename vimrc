@@ -12,13 +12,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 "Plugin 'vimwiki/vimwiki'
 Plugin 'VundleVim/Vundle.vim'
-Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'LaTeX-Box-Team/LaTeX-Box'
 "Plugin 'gerw/vim-latex-suite'
-Plugin 'neovimhaskell/haskell-vim'
+"Plugin 'neovimhaskell/haskell-vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-pandoc/vim-rmarkdown'
 Plugin 'vim-pandoc/vim-pandoc'
@@ -27,14 +27,18 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fireplace'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'guns/vim-clojure-static'
+Plugin 'vim-scripts/paredit.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'lervag/vimtex'
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+"Plugin 'Shougo/neocomplete'
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/deoplete.nvim'
+"Plugin 'roxma/nvim-yarp'
+"Plugin 'roxma/vim-hug-neovim-rpc'
+"Plugin 'Shougo/neosnippet-snippets'
 Plugin 'L9'
 Bundle 'tpope/vim-fugitive'
-Bundle 'python-mode/python-mode' 
+"Bundle 'python-mode/python-mode' 
 "Bundle 'python.vim--Vasiliev' 
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'mdlerch/mc-stan.vim'
@@ -52,8 +56,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-bufferline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'edkolev/tmuxline.vim'
-Plugin 'rizzatti/dash.vim'
-Bundle 'farseer90718/vim-taskwarrior'
+"Plugin 'rizzatti/dash.vim'
+"Bundle 'farseer90718/vim-taskwarrior'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -123,75 +127,77 @@ let g:vimtex_view_general_options_latexmk = '-r 1'
 let g:vimtex_latexmk_continuous = 0
 let g:tex_conceal = ""
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+"let g:acp_enableAtStartup = 0
+"" Use neocomplete.
+"let g:neocomplete#enable_at_startup = 1
+"" Use smartcase.
+"let g:neocomplete#enable_smart_case = 1
+"" Set minimum syntax keyword length.
+"let g:neocomplete#sources#syntax#min_keyword_length = 3
+"
+"" Define dictionary.
+"let g:neocomplete#sources#dictionary#dictionaries = {
+"    \ 'default' : '',
+"    \ 'vimshell' : $HOME.'/.vimshell_hist',
+"    \ 'scheme' : $HOME.'/.gosh_completions'
+"        \ }
+"
+"" Define keyword.
+"if !exists('g:neocomplete#keyword_patterns')
+"    let g:neocomplete#keyword_patterns = {}
+"endif
+"let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+"
+"" Plugin key-mappings.
+"inoremap <expr><C-g>     neocomplete#undo_completion()
+"inoremap <expr><C-l>     neocomplete#complete_common_string()
+"
+"" Recommended key-mappings.
+"" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+"  " For no inserting <CR> key.
+"  "return pumvisible() ? "\<C-y>" : "\<CR>"
+"endfunction
+"" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"" Close popup by <Space>.
+""inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+"
+"" AutoComplPop like behavior.
+""let g:neocomplete#enable_auto_select = 1
+"
+"" Shell like behavior(not recommended).
+""set completeopt+=longest
+""let g:neocomplete#enable_auto_select = 1
+""let g:neocomplete#disable_auto_complete = 1
+""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+"
+"" Enable omni completion.
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"
+"" Enable heavy omni completion.
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+"  let g:neocomplete#sources#omni#input_patterns = {}
+"endif
+"
+"" Enable snipMate compatibility feature.
+"let g:neosnippet#enable_snipmate_compatibility = 1
+"
+"" Tell Neosnippet about the other snippets
+"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 set clipboard=unnamed
 let vim_markdown_preview_pandoc=0
