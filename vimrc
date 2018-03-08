@@ -4,77 +4,61 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=/usr/local/opt/fzf
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+packadd minpac
+call minpac#init()
 
-" let Vundle manage Vundle, required
-"Plugin 'vimwiki/vimwiki'
-Plugin 'VundleVim/Vundle.vim'
-"Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'LaTeX-Box-Team/LaTeX-Box'
-"Plugin 'gerw/vim-latex-suite'
-"Plugin 'neovimhaskell/haskell-vim'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'vim-pandoc/vim-rmarkdown'
-Plugin 'jalvesaq/Nvim-R'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fireplace'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'guns/vim-clojure-static'
-Plugin 'vim-scripts/paredit.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'lervag/vimtex'
-"Plugin 'Shougo/neocomplete'
-"Plugin 'Shougo/neosnippet'
-"Plugin 'Shougo/deoplete.nvim'
-"Plugin 'roxma/nvim-yarp'
-"Plugin 'roxma/vim-hug-neovim-rpc'
-"Plugin 'Shougo/neosnippet-snippets'
-Plugin 'L9'
-Bundle 'tpope/vim-fugitive'
-"Bundle 'python-mode/python-mode' 
-"Bundle 'python.vim--Vasiliev' 
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'mdlerch/mc-stan.vim'
-Bundle 'maverickg/stan.vim'
-"Bundle 'pydave/AsyncCommand' 
-"Bundle 'mnick/vim-pomodoro' 
-"Plugin 'flazz/vim-colorschemes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'sjl/badwolf'
-Plugin 'reedes/vim-colors-pencil'
-Plugin 'whatyouhide/vim-gotham'
-"Plugin 'junegunn/goyo.vim'
-"Plugin 'nanotech/jellybeans.vim'
-Plugin 'airblade/vim-gitgutter'
-"Plugin 'ervandew/supertab'
-Plugin 'bling/vim-bufferline'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'edkolev/tmuxline.vim'
-"Plugin 'rizzatti/dash.vim'
-"Bundle 'farseer90718/vim-taskwarrior'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call minpac#add('k-takata/minpac', {'type':'opt'})
+"call minpac#add('vimwiki/vimwiki'
+call minpac#add('VundleVim/Vundle.vim')
+"call minpac#add( 'scrooloose/nerdtree')
+call minpac#add('scrooloose/syntastic')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+"call minpac#add('neovimhaskell/haskell-vim')
+call minpac#add('JamshedVesuna/vim-markdown-preview')
+call minpac#add('vim-pandoc/vim-rmarkdown')
+call minpac#add('jalvesaq/Nvim-R')
+call minpac#add('vim-pandoc/vim-pandoc')
+call minpac#add('vim-pandoc/vim-pandoc-syntax')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-fireplace')
+call minpac#add('slashmili/alchemist.vim')
+call minpac#add('guns/vim-clojure-static')
+call minpac#add('vim-scripts/paredit.vim')
+call minpac#add('easymotion/vim-easymotion')
+call minpac#add('lervag/vimtex')
+"call minpac#add('Shougo/neocomplete')
+"call minpac#add('Shougo/neosnippet')
+"call minpac#add('Shougo/deoplete.nvim')
+"call minpac#add('roxma/nvim-yarp')
+"call minpac#add('roxma/vim-hug-neovim-rpc')
+"call minpac#add('Shougo/neosnippet-snippets')
+"call minpac#add('L9')
+call minpac#add('tpope/vim-fugitive')
+"call minpac#add( 'python-mode/python-mode') 
+"call minpac#add( 'python.vim--Vasiliev')
+call minpac#add('kien/rainbow_parentheses.vim')
+call minpac#add('mdlerch/mc-stan.vim')
+call minpac#add('maverickg/stan.vim')
+"call minpac#add( 'pydave/AsyncCommand')
+"call minpac#add( 'mnick/vim-pomodoro')
+"call minpac#add( 'flazz/vim-colorschemes')
+call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('sjl/badwolf')
+call minpac#add('reedes/vim-colors-pencil')
+call minpac#add('whatyouhide/vim-gotham')
+"call minpac#add( 'junegunn/goyo.vim')
+"call minpac#add( 'nanotech/jellybeans.vim')
+call minpac#add('airblade/vim-gitgutter')
+"call minpac#add( 'ervandew/supertab')
+call minpac#add('bling/vim-bufferline')
+call minpac#add('christoomey/vim-tmux-navigator')
+call minpac#add('edkolev/tmuxline.vim')
+"call minpac#add( 'rizzatti/dash.vim')
+"call minpac#add( 'farseer90718/vim-taskwarrior')
+
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
+
 " " ==========================================================
 " " Basic Settings
 " " ==========================================================
@@ -128,78 +112,6 @@ let g:vimtex_view_general_options_latexmk = '-r 1'
 "stop vimtex to compile with save on subfiles
 let g:vimtex_latexmk_continuous = 0
 let g:tex_conceal = ""
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-"let g:acp_enableAtStartup = 0
-"" Use neocomplete.
-"let g:neocomplete#enable_at_startup = 1
-"" Use smartcase.
-"let g:neocomplete#enable_smart_case = 1
-"" Set minimum syntax keyword length.
-"let g:neocomplete#sources#syntax#min_keyword_length = 3
-"
-"" Define dictionary.
-"let g:neocomplete#sources#dictionary#dictionaries = {
-"    \ 'default' : '',
-"    \ 'vimshell' : $HOME.'/.vimshell_hist',
-"    \ 'scheme' : $HOME.'/.gosh_completions'
-"        \ }
-"
-"" Define keyword.
-"if !exists('g:neocomplete#keyword_patterns')
-"    let g:neocomplete#keyword_patterns = {}
-"endif
-"let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-"
-"" Plugin key-mappings.
-"inoremap <expr><C-g>     neocomplete#undo_completion()
-"inoremap <expr><C-l>     neocomplete#complete_common_string()
-"
-"" Recommended key-mappings.
-"" <CR>: close popup and save indent.
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-"  " For no inserting <CR> key.
-"  "return pumvisible() ? "\<C-y>" : "\<CR>"
-"endfunction
-"" <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"" Close popup by <Space>.
-""inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-"
-"" AutoComplPop like behavior.
-""let g:neocomplete#enable_auto_select = 1
-"
-"" Shell like behavior(not recommended).
-""set completeopt+=longest
-""let g:neocomplete#enable_auto_select = 1
-""let g:neocomplete#disable_auto_complete = 1
-""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-"
-"" Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"
-"" Enable heavy omni completion.
-"if !exists('g:neocomplete#sources#omni#input_patterns')
-"  let g:neocomplete#sources#omni#input_patterns = {}
-"endif
-"
-"" Enable snipMate compatibility feature.
-"let g:neosnippet#enable_snipmate_compatibility = 1
-"
-"" Tell Neosnippet about the other snippets
-"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 set clipboard=unnamed
 let vim_markdown_preview_pandoc=0
