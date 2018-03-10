@@ -34,10 +34,11 @@ call minpac#add('ajh17/VimCompletesMe')
 call minpac#add('kien/rainbow_parentheses.vim')
 call minpac#add('mdlerch/mc-stan.vim')
 call minpac#add('maverickg/stan.vim')
-call minpac#add('altercation/vim-colors-solarized')
+"call minpac#add('altercation/vim-colors-solarized')
 call minpac#add('sjl/badwolf')
 call minpac#add('reedes/vim-colors-pencil')
 call minpac#add('whatyouhide/vim-gotham')
+call minpac#add('lifepillar/vim-solarized8')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('bling/vim-bufferline')
 call minpac#add('christoomey/vim-tmux-navigator')
@@ -87,8 +88,8 @@ filetype plugin indent on    " required
 
  language en_US
  set encoding=utf8
- filetype plugin on
- colorscheme badwolf
+ "filetype plugin on
+ colorscheme solarized8_high
  if has("gui_running")
     set lines=80
     set transparency=12
